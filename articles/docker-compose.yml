@@ -1,0 +1,8 @@
+version: '3'
+services:
+  review:
+    image: vvakame/review:5.3
+    volumes:
+      - .:/12_spresense_camera
+    build: .
+    working_dir: /12_spresense_camera
