@@ -2,7 +2,16 @@ PREDEF:
   - preface.re
 
 CHAPS:
-  - article.re
+  - spresense_overview.re
+  - camera_overview.re
+  - hardware_overview.re
+  - development_environment.re
+  - development_method.re
+  - Spresense_SDK.re
+  - Arduino_IDE.re
+  - SDK_Arduino_compare.re
+  - camera_subject.re
+  - camera_expand.re
 
 APPENDIX:
 
