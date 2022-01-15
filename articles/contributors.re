@@ -9,25 +9,25 @@
 
  * 技術書典11 CからRustにモータ制御ロジックを移植する@<fn>{techbookfest_11_C2Rust_Motor_URL}
 
- * 技術書典10 GCC開発環境構築入門(EVカート編)@<fn>{techbookfest_10_GCC_Env_URL}
+ * 技術書典10 GCC開発環境構築入門（EVカート編）@<fn>{techbookfest_10_GCC_Env_URL}
 
  * 技術書典9 EVカートで始めるモデルベース開発@<fn>{techbookfest_9_EVKartMBD_URL}
 
+SNS:
 
-Twitter: @juraruming
+ * Twitter: @juraruming
 
-Qiita: @<href>{https://qiita.com/gracehime}
+ * Qiita: @<href>{https://qiita.com/gracehime}
 
-Zenn: @<href>{https://zenn.dev/k_abe}
+ * Zenn: @<href>{https://zenn.dev/k_abe}
 
-GitHub: @<href>{https://github.com/grace2riku}
+ * GitHub: @<href>{https://github.com/grace2riku}
 
-ブログ: @<href>{https://k-abe.hatenablog.com/}
+ * ブログ: @<href>{https://k-abe.hatenablog.com/}
 
-Speaker Deck: @<href>{https://speakerdeck.com/grace2riku}
+ * Speaker Deck: @<href>{https://speakerdeck.com/grace2riku}
 
-slideshare: @<href>{https://www2.slideshare.net/KoujiAbe}
-
+ * slideshare: @<href>{https://www2.slideshare.net/KoujiAbe}
 
 1980年生まれ、2002年より組込みソフトウェアエンジニアとしてキャリアをスタート。
 C言語、ベアメタルの組込みソフトウェア開発がキャリアの大半を占める。
