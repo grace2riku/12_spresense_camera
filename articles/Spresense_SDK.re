@@ -135,35 +135,194 @@ tools/config.py -m
 //}
 
 CUIのコンフィギュレーション設定画面が表示されます。
+@<list>{camera_kconfig}で作成したKconfigファイルの【MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD】を有効化します。@<br>{}
+【Application Configuration】を選択します。
 
 //image[tools_config_py_m_1][tools/config.py -mの実行結果1]{ 
 //}
 
+【Spresense SDK】を選択します。
+
 //image[tools_config_py_m_2][tools/config.py -mの実行結果2]{ 
 //}
+
+【My Camera Apps】を選択します。
 
 //image[tools_config_py_m_3][tools/config.py -mの実行結果3]{ 
 //}
 
+@<list>{camera_kconfig}で追加したLCD有効化のコンフィグ【Output to LCD】が表示されています。@<br>{}
+
 //image[tools_config_py_m_4][tools/config.py -mの実行結果4]{ 
 //}
 
+【Output to LCD】にカーソルをあわせてスペースを押下します。
+【Output to LCD】に【*】印がマークされます。
 //image[tools_config_py_m_5][tools/config.py -mの実行結果5]{ 
 //}
+
+次の操作をして@<img>{tools_config_py_m_6}画面に移動し< Yes >を選択します。@<br>{}
+
+ * 右カーソル押下で< Exit >を選択し続ける
+
+ * Escキーを押下し続ける
 
 //image[tools_config_py_m_6][tools/config.py -mの実行結果6]{ 
 //}
 
 === 実装
-//comment{
+【examples/camera】のソースコードを流用してデジタルカメラのアプリケーションを実装していきます。
 
-//}
-=== タクトスイッチ
 ==== ファイル構造
+ファイルの構造は次のようになっています。
+各ファイルの説明は*印を参照してください。
+
+ * spresense/mycameraapps-master
+ ** .built *1
+ ** .sdksubdir *1
+ ** Make.defs *1
+ ** Makefile *1
+ ** myfirstcameraapp *1
+ *** configs/default/defconfig *1
+ *** camera_bkgd.c *2
+ *** camera_bkgd.h *2
+ *** camera_fileutil.c *2
+ *** camera_fileutil.h *2
+ *** camera_main.c *3
+ *** gpio.c *4
+ *** Kconfig *5
+ *** Make.defs *1
+ *** Makefile *6
+ *** myfirstcameraapp_main.c *7
+
+
+1. 自動生成且つ変更なし@<br>{}
+　@<hd>{アプリケーションの追加}で自動生成されるファイルです。変更不要しません。@<br>{}
+
+2. 【examples/camera】サンプルコード。@<br>{}
+　サンプルコードをそのまま利用します。変更しません。@<br>{}
+
+3. 【examples/camera】サンプルコード　main処理@<br>{}
+　サンプルコードを流用し変更します。変更内容は@<hd>{camera_main.cの変更}、
+@<hd>{デジタルカメラアプリケーション要求仕様の実装}に書いています。@<br>{}
+
+4. 割り込み設定・割り込み処理@<br>{}
+　APS学習ボードのタクトスイッチを使用するため割り込み設定、割り込み処理をしています。
+デジタルカメラアプリケーションで追加した処理で変更内容はGPIO初期化、GPIO両エッジ割り込みに書いています。@<br>{}
+
+5. Kconfig@<br>{}
+　自動生成されるファイルです。【examples/camera】を参考にコンフィグ追加します。
+変更内容は@<hd>{コンフィギュレーション前の準備}に書いています。@<br>{}
+
+6. Makefile@<br>{}
+　自動生成されるファイルです。【examples/camera】のMakefileを参考に変更します。
+4のソースコードをビルド対象に追加します。変更内容は@<hd>{Makefileの変更}に書いています。@<br>{}
+
+7. デジタルカメラアプリケーションのメイン関数@<br>{}
+　自動生成されるファイルです。main関数からGPIO初期設定、
+3の【examples/camera】のmain関数を呼び出しデジタルカメラアプリケーションを開始します。
+変更内容は@<hd>{main関数}に書いています。@<br>{}
+
+
+==== サンプルソースコードの流用
+【examples/camera】の次のソースコードをアプリケーションの
+ディレクトリ【spresense/mycameraapps/myfirstcameraapp】にコピーします。
+
+ * camera_bkgd.c
+
+ * camera_fileutil.c
+
+ * camera_main.c
+
+ * camera_bkgd.h
+
+ * camera_fileutil.h
+
+
+【examples/camera】サンプルソースコードは次のディレクトリに格納されています。
+
+ * spresense/sdk/apps/examples/camera
+
+
+==== camera_main.cの変更
+コピーしたcamera_main.cを修正します。
+次の項目を変更します。
+
+ * LCD出力のマクロ名称の変更
+
+ * main関数の名称変更
+
+===== LCD出力のマクロ名称の変更@<br>{}
+camera_main.cのLCD出力のマクロは【examples/camara】サンプルプログラムで動作することが
+前提になっています。
+今回デジタルカメラアプリケーション向けにKconfigファイルを修正し、LCD出力のコンフィグを変更しました。
+
+ * 【examples/camara】サンプルプログラムのKconfigファイルのLCD出力のコンフィグ
+ ** EXAMPLES_CAMERA_OUTPUT_LCD
+
+ * デジタルカメラアプリケーションのKconfigファイルのLCD出力のコンフィグ
+ ** MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD
+
+camara_main.cの【EXAMPLES_CAMERA_OUTPUT_LCD】を【MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD】に置換します。
+
+===== main関数の名称変更@<br>{}
+camera_main.cのmain関数の名称を変更します（sdk_camera_example_mainに変更）。
+【examples/camara】サンプルプログラムではcamera_main.cのmain関数がアプリケーションの起点でした。
+今回のデジタルカメラアプリケーションでは次のファイルのmain関数がアプリケーションの起点になるためです。
+
+ * spresense/mycameraapps/myfirstcameraapp/myfirstcameraapp_main.c
+
+==== main関数
+spresense/mycameraapps-master/myfirstcameraapp/myfirstcameraapp_main.cの
+main関数に次の処理を追加します。
+
+===== GPIO初期化関数の呼び出し@<br>{}
+タクトスイッチのGPIO入力設定・割り込み設定を行うGPIO初期化関数（gpio_init関数）を呼び出します。
+
+===== カメラmain処理関数の呼び出し@<br>{}
+myfirstcameraapp_main.cのmain関数からsdk_camera_example_main関数を呼び出し、
+デジタルカメラアプリケーションの挙動を開始します。@<br>{}
+
+
+==== デジタルカメラアプリケーション要求仕様の実装
+@<hd>{camera_overview|デジタルカメラの要求仕様}で書いた機能を実装します。
+
+ 1. LCDに画像をプレビュー表示し続ける → 【LCD画像プレビュー表示継続機能】とします。
+ 1. 任意のタイミングで画像を保存できること → 【任意タイミングの画像保存機能】とします。
+ 1. 任意のタイミングでカメラの使用を終了できること → 【カメラ終了機能】とします。
+
+===== LCD画像プレビュー表示継続機能@<br>{}
+exampels/cameraサンプルプログラムの動作を次のように変更しました。
+
+ * コマンドライン引数の撮影画像ファイル数を【1】にしてもプレビュー画像をLCD出力し続けるよう変更
+
+===== 任意タイミングの画像保存機能@<br>{}
+APS学習ボードのタクトスイッチ（SW2）押下でjpgでファイル保存する動作に変更しました。
+SW2の割り込みハンドラで画像保存のフラグをセットし、メインループでフラグの状態を監視しています。
+
+===== カメラ終了機能@<br>{}
+APS学習ボードのタクトスイッチ（SW1）押下でアプリケーションを終了する動作に変更しました。
+SW1の割り込みハンドラでアプリケーション終了のフラグをセットし、メインループでフラグの状態を監視しています。
+
+===== GPIO初期化@<br>{}
+APS学習ボードのタクトスイッチは次の機能割り当てにしました。
+
+ * SW1はアプリケーションの終了に使用
+
+ * SW2はシャッターに使用
+
+SW1・SW2の押下状況を把握するために両エッジの割り込みを使うことにしました。
+ここで割り込みエッジ設定・割り込みハンドラ登録、割り込みの有効化をしています。
+
+===== GPIO両エッジ割り込み@<br>{}
+APS学習ボードのタクトスイッチ（SW1、SW2）はプルアップされています。
+GPIO初期化でスイッチ押下（立ち下がりエッジ）・リリース（立ち上がりエッジ）の両エッジで割り込み発生するよう設定しています。
+SW1押下でアプリケーションの終了のフラグをセットします。SW2押下でシャッターのフラグをセットします。
+また、SW1・SW2のレベルを読み込み、読み出したレベルをAPS学習ボードのLED（USER_LED1、USER_LED2）に書込みしています。
+結果スイッチ押下でLEDが消灯し、スイッチリリースでLEDが点灯します。
 
 === make
 ==== Makefileの変更
-==== Make.defsの確認
 
 
 == ベースにしたサンプルプログラムの変更点
