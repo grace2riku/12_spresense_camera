@@ -138,37 +138,76 @@ CUIのコンフィギュレーション設定画面が表示されます。
 @<list>{camera_kconfig}で作成したKconfigファイルの【MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD】を有効化します。@<br>{}
 【Application Configuration】を選択します。
 
-//image[tools_config_py_m_1][tools/config.py -mの実行結果1]{ 
+//image[tools_config_py_m_Application_Configuration][Application Configurationを選択]{ 
 //}
 
 【Spresense SDK】を選択します。
 
-//image[tools_config_py_m_2][tools/config.py -mの実行結果2]{ 
+//image[tools_config_py_m_Spresense_SDK][Spresense SDKを選択]{ 
 //}
 
 【My Camera Apps】を選択します。
 
-//image[tools_config_py_m_3][tools/config.py -mの実行結果3]{ 
+//image[tools_config_py_m_My_Camera_Apps][My Camera Appsを選択]{ 
 //}
 
 @<list>{camera_kconfig}で追加したLCD有効化のコンフィグ【Output to LCD】が表示されています。@<br>{}
 
-//image[tools_config_py_m_4][tools/config.py -mの実行結果4]{ 
+//image[tools_config_py_m_disp_Output_to_LCD][Output to LCD]{ 
 //}
 
 【Output to LCD】にカーソルをあわせてスペースを押下します。
 【Output to LCD】に【*】印がマークされます。
-//image[tools_config_py_m_5][tools/config.py -mの実行結果5]{ 
+//image[tools_config_py_m_sel_Output_to_LCD][Output to LCDの選択]{ 
 //}
 
-次の操作をして@<img>{tools_config_py_m_6}画面に移動し< Yes >を選択します。@<br>{}
+次の操作をして@<img>{tools_config_py_m_Examples}画面に移動します。
 
  * 右カーソル押下で< Exit >を選択し続ける
 
  * Escキーを押下し続ける
 
-//image[tools_config_py_m_6][tools/config.py -mの実行結果6]{ 
+//image[tools_config_py_m_Examples][Examplesの選択]{ 
 //}
+【Examples】を選択します。
+
+次の@<img>{tools_config_py_m_Camera_example}画面になります。
+
+//image[tools_config_py_m_Camera_example][Camera exampleがマーク]{ 
+//}
+
+コンフィギュレーションで次の【examples/camera】を指定したので【Camera example】に*印がマークされています。
+
+//cmd{
+tools/config.py examples/camera
+//}
+
+今回のデジタルカメラアプリケーションは【examples/camera】サンプルプログラムとハードウェア要件も同じです。
+そのため【examples/camera】サンプルプログラムのコンフィギュレーションを指定しました。
+こちらの【Camera example】を有効化したままにすると次の2つがアプリケーションとして登録されることになります。
+
+ * デジタルカメラアプリケーション
+
+ * 【examples/camera】サンプルプログラム
+
+FlashROM容量の節約・類似のアプリケーションは2つも必要ないため【Camera example】を無効化します。
+
+次の@<img>{tools_config_py_m_Camera_example_unmark}画面になります。
+
+//image[tools_config_py_m_Camera_example_unmark][Camera exampleを無効化]{ 
+//}
+
+
+再び次の操作をして@<img>{tools_config_py_m_save}画面に移動し< Yes >を選択します。@<br>{}
+
+ * 右カーソル押下で< Exit >を選択し続ける
+
+ * Escキーを押下し続ける
+
+//image[tools_config_py_m_save][コンフィギュレーションの保存]{ 
+//}
+これでコンフィギュレーションが保存できます。
+
 
 === 実装
 【examples/camera】のソースコードを流用してデジタルカメラのアプリケーションを実装していきます。
@@ -321,22 +360,214 @@ SW1押下でアプリケーションの終了のフラグをセットします�
 また、SW1・SW2のレベルを読み込み、読み出したレベルをAPS学習ボードのLED（USER_LED1、USER_LED2）に書込みしています。
 結果スイッチ押下でLEDが消灯し、スイッチリリースでLEDが点灯します。
 
-=== make
+=== ビルド
+コンフィギュレーション、コードの変更が終了したらMakefileを変更しmakeします。
+
 ==== Makefileの変更
+【examples/camera】サンプルプログラムのコードを流用するので、【examples/camera】のMakefileを参照し、
+デジタルカメラアプリケーションのMakefileも変更します。
+【examples/camera】サンプルプログラムのMakefileは次のパスにあります。@<br>{}
 
+ * spresense/sdk/apps/examples/camera/Makefile
 
-== ベースにしたサンプルプログラムの変更点
-//comment{
+最終的にMakefikeは@<list>{camera_app_makefile}にしました。
 
+//list[camera_app_makefile][デジタルカメラアプリケーションのMakefile]{
+include $(APPDIR)/Make.defs
+#include $(SDKDIR)/Make.defs
+#include $(TOPDIR)/Make.defs
+
+PROGNAME = $(CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP_PROGNAME)
+PRIORITY = $(CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP_PRIORITY)
+STACKSIZE = $(CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP_STACKSIZE)
+MODULE = $(CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP)
+
+ifeq ($(CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD),y)
+CSRCS += camera_bkgd.c
+endif
+
+CSRCS += camera_main.c camera_fileutil.c gpio.c
+
+#ASRCS =
+#CSRCS =
+MAINSRC = myfirstcameraapp_main.c
+
+include $(APPDIR)/Application.mk
 //}
 
-== GitHubソースコードをmakeする手順
+変更したのはCSRCSになります。
+LCD出力のコンフィグ（CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD）が設定されていたときの条件も追加しています。@<br>{}
+【examples/camera】サンプルグラムのMakefileではMAINSRCがcamera_main.cになっていました。
+今回はデジタルカメラアプリケーションの名称【myfirstcameraapp】で自動生成された【myfirstcameraapp_main.c】を
+MAINSRCになっています。camera_main.cはCSRCSに設定しています。
 
+追加したgpio.cはCSRCSに設定しています。
+
+====[column]Kconfigファイルで定義したシンボルの参照
+Webマニュアルに書いてありますがKconfigファイルで定義したシンボルはMakefileで参照できます。@<br>{}
+
+Kconfigファイルのシンボル@<br>{}
+config MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD@<br>{}
+
+上のシンボルはMakefileでは頭に【CONFIG_】をつけた名称で参照可能です。@<br>{}
+CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD@<br>{}
+
+頭に【CONFIG_】をつけたシンボル名はソースファイルでも参照可能です。@<br>{}
+【CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD】はコンフィギュレーション・make実行後に作成される
+次のヘッダーファイルに定義されています。
+
+ * spresense/nuttx/include/nuttx/config.h
+
+ソースコードで参照するには次の@<list>{config_symbol_include}のようにします。
+
+//list[config_symbol_include][Kconfigファイルのシンボルが定義されているインクルードファイル]{
+#include <nuttx/config.h>
+//}
+
+camera_main.c先頭でもインクルードしています。
+
+Kconfigのシンボルで機能を分ける・ソースコードの処理を分ける、などに使えそうですね。
+
+====[/column]
+
+==== make
+makeを実行します。
+
+//cmd{
+KojinoMacBook-2:sdk k-abe$ make
+//}
+
+次のメッセージが表示されていれば正しくmakeできています。
+//cmd{
+File nuttx.spk is successfully created.
+Done.
+//}
+
+【nuttx.spk】がSpresenseに書き込むファイルです。
+
+
+== GitHubソースコードをmakeする手順
+デジタルカメラアプリケーションをmakeする手順は次のとおりです。
+Visual Studio Codeのターミナル、シェルで操作することを前提にしています。
+
+1. GitHubリポジトリからソースコードをクローン・ダウンロードします。@<br>{}
+
+ * @<href>{https://github.com/grace2riku/mycameraapps,Spresense SDK版デジタルカメラアプリケーション GitHubリポジトリのリンク}
+
+【Download ZIP】を選択しzipファイルをダウンロードした前提で手順をかきます。
+Spresense SDKの開発環境構築が終わっていることが前提になります。@<br>{}
+
+2. ダウンロードしたzipファイルを解凍します。@<br>{}
+
+3. 解凍したディレクトリ【mycameraapps-master】をSpresense開発環境構築したディレクトリにコピーします。@<br>{}
+　私の場合（Mac）は次がコピー先になります。@<br>{}
+
+ * /Users/ユーザー名/spresense
+
+4. spresense/sdkディレクトリに移動します。@<br>{}
+
+5. ツールを使用するために次のコマンドを実行します。
+//cmd{
+KojinoMacBook-2:sdk k-abe$ source ~/spresenseenv/setup
+//}
+
+6. コンフィギュレーションします。
+//cmd{
+KojinoMacBook-2:sdk k-abe$ tools/config.py examples/camera
+KojinoMacBook-2:sdk k-abe$ tools/config.py -m
+//}
+@<hd>{コンフィギュレーション}に図で書いてとおりにコンフィギュレーションを設定・保存します。
+
+7. makeします。
+//cmd{
+KojinoMacBook-2:sdk k-abe$ make
+//}
+
+次のメッセージが表示されていれば正しくmakeできています。
+//cmd{
+File nuttx.spk is successfully created.
+Done.
+//}
 
 == 書込み
+makeでできたファイル（nuttx.spk）をメインボードに書込みます。
+
+=== USBシリアルのポート名の確認
+書込みツールでUSBシリアルのポート名を指定するので次のコマンドで調べます。
+USBケーブルのマイクロBと【メインボード】のUSBコネクタを接続します。
+拡張ボードにもUSBコネクタがありますがメインボードと接続します。
+USBケーブルを接続したら次のコマンドを実行します。
+
+//cmd{
+KojinoMacBook-2:sdk k-abe$ ls /dev/cu.usb*
+/dev/cu.usbserial-14140
+//}
+私のメインボードの場合、【/dev/cu.usbserial-14140】となります。
+
+=== 書込みコマンド実行
+書込みはツール（tools/flash.sh）を利用します。次のコマンドで書込みを実行します。
+次の表示のようになっていれば書込みは成功しています。メインボードが再起動します。
+
+//cmd{
+KojinoMacBook-2:sdk k-abe$ tools/flash.sh -c /dev/cu.usbserial-14140 nuttx.spk
+>>> Install files ...
+install -b 115200
+Install nuttx.spk
+|0%-----------------------------50%------------------------------100%|
+######################################################################
+
+214304 bytes loaded.
+Package validation is OK.
+Saving package to "nuttx"
+updater# sync
+updater# Restarting the board ...
+reboot
+//}
+
 
 == 動作確認
+次のコマンドを実行しデジタルカメラアプリケーションが動いているか確認します。
+
+=== シリアル接続
+シリアルターミナルでNuttxのシェルに接続します。
+今回はシリアルターミナルに【minicom】を使用します。
+
+次のコマンドで接続します。
+//cmd{
+KojinoMacBook-2:sdk k-abe$ minicom -D /dev/cu.usbserial-14140 -b 115200
+//}
+
+通信条件は次のとおりです。minicomの場合はボーレートだけを設定すればよいようです。
+
+ * ボーレート: 115200
+
+ * データ長: 8bit
+
+ * パリティ: なし
+
+ * ストップbit: 1
+
+
+接続できると次のようにNuttXのシェル（nsh）が表示されます。
+//cmd{
+Welcome to minicom 2.8
+
+OPTIONS: 
+Compiled on Jan  4 2021, 00:04:46.
+Port /dev/cu.usbserial-14140, 00:19:25
+
+Press Meta-Z for help on special keys
+
+
+NuttShell (NSH) NuttX-10.1.0
+nsh> 
+//}
+
+
 === アプリケーションの動作確認
 === Spresense SDK固有機能
 
 
+//comment{
+
+//}
