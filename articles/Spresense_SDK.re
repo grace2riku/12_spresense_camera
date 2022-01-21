@@ -565,8 +565,185 @@ nsh>
 
 
 === アプリケーションの動作確認
-=== Spresense SDK固有機能
+デジタルカメラアプリケーションの動作確認をします。
+【help】コマンドを実行します。実行できるコマンド・アプリケーションが表示されます。
+【Builtin Apps:】にデジタルカメラアプリケーションの【myfirstcameraapp】が表示されています。
 
+//cmd{
+nsh> help
+help usage:  help [-v] [<cmd>]
+
+  .          cmp        false      ls         nslookup   sleep      usleep     
+  [          dirname    free       mkdir      poweroff   source     xd         
+  ?          date       help       mkfatfs    ps         test       
+  basename   dd         hexdump    mkfifo     pwd        time       
+  break      df         ifconfig   mkrd       reboot     true       
+  cat        echo       ifdown     mksmartfs  rm         uname      
+  cd         exec       ifup       mount      rmdir      umount     
+  cp         exit       kill       mv         set        unset      
+
+Builtin Apps:
+  myfirstcameraapp  nsh               sh                
+//}
+
+【myfirstcameraapp】を入力し、デジタルカメラアプリケーションを開始します。
+次のメッセージが表示され、LCDにカメラのプレビュー画像が表示されます。
+//cmd{
+nsh> myfirstcameraapp
+nximage_listener: Connected
+nximage_initialize: Screen resolution (320,240)
+Take 10 pictures as JPEG file in /mnt/sd0 after 5 seconds.
+ After finishing taking pictures, this app will be finished after 10 seconds.
+//}
+
+//comment{
+TODO: ここにカメラプレビュー画像を置く。
+//}
+
+APS学習ボードのタクトスイッチ（SW2）を押下します。
+次はSW2を3回押下したときにシェルに表示されるメッセージです。
+
+//cmd{
+sw2_status = 0
+Start captureing...
+sw2_status = 1
+FILENAME:/mnt/sd0/VIDEO001.JPG
+Finished captureing...
+sw2_status = 0
+Start captureing...
+sw2_status = 1
+FILENAME:/mnt/sd0/VIDEO002.JPG
+Finished captureing...
+sw2_status = 0
+Start captureing...
+sw2_status = 1
+FILENAME:/mnt/sd0/VIDEO003.JPG
+Finished captureing...
+//}
+
+表示されているメッセージについて説明します。
+
+ * sw2_status = 0
+　APS学習ボードのSW2を押下したときに表示されるメッセージです。このときUSER_LED2は消灯しています。
+
+ * Start captureing...
+　LCDに表示されている画像を撮影開始するメッセージです。
+
+ * sw2_status = 1
+　APS学習ボードのSW2を押下⇛リリースしたときに表示されるメッセージです。このときUSER_LED2は消灯⇛点灯になります。
+
+ * FILENAME:/mnt/sd0/VIDEO001.JPG
+　Finished captureing...@<br>{}
+　撮影した画像を表示されているパスに保存し、撮影が終了したことを表示しています。
+
+
+APS学習ボードのタクトスイッチ（SW1）を押下します。
+次はSW1を押下・リリースしたときにシェルに表示されるメッセージです。
+LCDプレビュー表示の更新が止まり、デジタルカメラアプリケーションが終了します。
+シェルのプロンプト（nsh>）が表示されます。
+
+//cmd{
+sw1_status = 0
+sw1_status = 1
+nsh> 
+//}
+
+=== Spresense SDK固有機能
+デジタルカメラアプリケーションの他に組み込まれているコマンドを確認していみます。
+各種コマンドは【help】コマンドで確認できます。
+
+//cmd{
+nsh> help
+help usage:  help [-v] [<cmd>]
+
+  .          cmp        false      ls         nslookup   sleep      usleep     
+  [          dirname    free       mkdir      poweroff   source     xd         
+  ?          date       help       mkfatfs    ps         test       
+  basename   dd         hexdump    mkfifo     pwd        time       
+  break      df         ifconfig   mkrd       reboot     true       
+  cat        echo       ifdown     mksmartfs  rm         uname      
+  cd         exec       ifup       mount      rmdir      umount     
+  cp         exit       kill       mv         set        unset      
+
+Builtin Apps:
+  myfirstcameraapp  nsh               sh                
+//}
+
+【uname】コマンドを実行してみます。
+NuttXのバージョン、ビルド日時が表示されます。
+//cmd{
+nsh> uname -a
+NuttX  10.1.0 b02a66b25b-dirty Jan 20 2022 08:41:05 arm spresense
+//}
+
+【ls】コマンドでさきほど撮影した画像ファイルが記録されているか調べてみます。
+VIDEO001.JPG、VIDEO002.JPG、VIDEO003.JPGが記録されていました。
+//cmd{
+nsh> ls mnt/sd0
+/mnt/sd0:
+ System Volume Information/
+ VIDEO001.JPG
+ VIDEO002.JPG
+ VIDEO003.JPG
+ test.txt
+//}
+
+【cat】、【echo】コマンドでファイル読み込み、書込みしてみます。
+事前にPCでテキストファイル作成しSDカードに書込みしておきます（ファイル名はtest.txt）。
+【cat】コマンドでファイルを読み込みしてみます。
+//cmd{
+nsh> cat /mnt/sd0/test.txt
+test file.
+Create by Mac.
+//}
+
+【echo】コマンドでファイルに追記してみます。
+//cmd{
+nsh> echo Hello, Spresense!!! >> /mnt/sd0/test.txt
+//}
+
+【cat】コマンドで【echo】コマンドで書き込みした内容が書き込まれているか確認してみます。
+【echo】コマンドで書込みした「Hello, Spresense!!!」が読み込めました。
+//cmd{
+nsh> cat /mnt/sd0/test.txt
+test file.
+Create by Mac.
+Hello, Spresense!!!
+//}
+
+【ps】コマンドでプロセスの一覧を表示します。
+//cmd{
+nsh> ps
+  PID GROUP PRI POLICY   TYPE    NPX STATE    EVENT     SIGMASK   STACK   USED  FILLED COMMAND
+    0         0 FIFO     Kthread N-- Ready              00000000 001024 000464  45.3%  Idle Task
+    1       224 RR       Kthread --- Waiting  Signal    00000000 002008 000596  29.6%  hpwork
+    2       100 RR       Kthread --- Waiting  Signal    00000000 002008 000332  16.5%  lpwork
+    3       100 RR       Kthread --- Waiting  Signal    00000000 002008 000332  16.5%  lpwork
+    4       100 RR       Kthread --- Waiting  Signal    00000000 002008 000332  16.5%  lpwork
+    6       200 RR       Task    --- Waiting  MQ empty  00000000 000976 000400  40.9%  cxd56_pm_task
+    7       100 RR       Task    --- Running            00000000 008152 001144  14.0%  init
+//}
+
+【df】コマンドを実行してみます。
+ストレージの空き容量が表示されます。@<br>{}
+【/mnt/spif】はFlashROMです。
+//cmd{
+nsh> df -h
+  Filesystem    Size      Used  Available Mounted on
+  vfat         7493M       12M      7480M /mnt/sd0
+  smartfs         4M       28K      4068K /mnt/spif
+  procfs          0B        0B         0B /proc
+//}
+
+【free】コマンドでメモリの利用状況を表示します。
+//cmd{
+nsh> free
+                     total       used       free    largest
+        Umem:      1341536      44784    1296752    1295808
+//}
+
+如何でしょうか?一部ですがコマンド実行結果を書きました。
+Linuxと同じようにコマンドが実行できました。
 
 //comment{
 

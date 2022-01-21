@@ -4,28 +4,27 @@ Arduino IDEでデジタルカメラアプリケーションを開発する手順
 
 今回のソースコードは次のGitHubリポジトリに置きました。
 
-//comment{
-TODO: Arduino IDEのGitHubリポジトリリンクを記載する
-//}
+@<href>{https://github.com/grace2riku/spresense_camera_arduino/tree/master,Arduino IDE 版デジタルカメラアプリケーション GitHub リポジトリのリンク}
 
 == プログラム概要
 
 == ベースにしたサンプルプログラム
 
 == アプリケーションの作成手順
-
-
-== プログラムのツリー構造
-=== ファイル構造
-
-== ベースにしたサンプルプログラムの変更点
-
-== プログラムのビルド方法
 //comment{
-OSのコンフィギュレーションがないことが違い
+OSのコンフィギュレーションがないことがSpresense SDKとの違いと書く。
 //}
 
+=== 実装
+
+=== ビルド
+
+
 == 書込み
+
+
+== GitHubソースコードをmakeする手順
+
 
 == 動作確認
 === アプリケーションの動作確認
