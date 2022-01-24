@@ -140,10 +140,24 @@ Arduino IDEの左上の【マイコンボードに書き込む】ボタンでビ
 
 
 == 動作確認
+Arduino版の動作確認方法について書きます。
+
 === アプリケーションの動作確認
+メインボードとPCをUSBケーブルで接続し給電するとLCDにカメラのプレビュー画面が表示されます。
+APS学習ボードのタクトスイッチ（SW2）押下でSDカードにカメラのプレビュー画像が保存されます。
 
 === Arduino IDE固有のこと
-//comment{
-シリアルモニタの操作手順
+Arduino IDE画面右側の【シリアルモニタ】アイコンを押下するとデジタルカメラアプリケーションが出力している
+シリアルメッセージを確認できます。
 
+//image[arduino_serial_monitor][Arduino IDEシリアルモニタ]{
 //}
+
+@<img>{arduino_serial_monitor}はSW2を押下したときのシリアルモニタ表示です。
+SW2を押下するたびに次のメッセージが表示されます。
+
+ * call takePicture()
+
+ * Save taken picture as PICT000.JPG
+
+画像ファイル名はPICT000.LPG→PICT001.LPG〜のようにファイル名の数値部分がインクリメントしていきます。
