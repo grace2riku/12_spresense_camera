@@ -103,6 +103,21 @@ Arduino版はArduino用の関数でGPIO初期化（pinMode）・割り込み設�
 === ビルド
 Arduino IDEの左上の【検証】ボタンでビルドします。【コンパイルが完了しました。】と表示されていればビルドは正常に完了しています。
 
+== カメラボードのセッティング
+カメラの向きを設定します。
+
+拡張ボードとカメラボードを@<img>{arduino_camera_setting}のように組み立てます。
+//image[arduino_camera_setting][デジタルカメラ正面]{ 
+//}
+
+LCD実装面側は@<img>{arduino_camera_setting_lcd}のようになります。
+//image[arduino_camera_setting_lcd][デジタルカメラLCD正面]{ 
+//}
+
+このカメラボードのセッティング、プログラムの組み合わせで@<img>{arduino_lcd_preview}のように
+LCDにプレビュー画像が表示されます。
+
+
 == 書込み
 USBケーブルのマイクロBと【メインボード】のUSBコネクタを接続します。
 Arduino IDEの左上の【マイコンボードに書き込む】ボタンでビルド・書込みします。
@@ -143,7 +158,12 @@ Arduino IDEの左上の【マイコンボードに書き込む】ボタンでビ
 Arduino版の動作確認方法について書きます。
 
 === アプリケーションの動作確認
-メインボードとPCをUSBケーブルで接続し給電するとLCDにカメラのプレビュー画面が表示されます。
+メインボードとPCをUSBケーブルで接続し給電するとLCDに@<img>{arduino_lcd_preview}のように
+カメラのプレビュー画面が表示されます。
+
+//image[arduino_lcd_preview][デジタルカメラアプリケーションLCD画像表示]{ 
+//}
+
 APS学習ボードのタクトスイッチ（SW2）押下でSDカードにカメラのプレビュー画像が保存されます。
 
 === Arduino IDE固有のこと

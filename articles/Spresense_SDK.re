@@ -182,7 +182,8 @@ CUIのコンフィギュレーション設定画面が表示されます。
 tools/config.py examples/camera
 //}
 
-今回のデジタルカメラアプリケーションは【examples/camera】サンプルプログラムとハードウェア要件も同じです。
+ @<strong>{【Tips】}@<br>{}
+ 今回のデジタルカメラアプリケーションは【examples/camera】サンプルプログラムとハードウェア要件も同じです。
 そのため【examples/camera】サンプルプログラムのコンフィギュレーションを指定しました。
 こちらの【Camera example】を有効化したままにすると次の2つがアプリケーションとして登録されることになります。
 
@@ -490,6 +491,20 @@ File nuttx.spk is successfully created.
 Done.
 //}
 
+== カメラボードのセッティング
+カメラの向きを設定します。
+
+拡張ボードとカメラボードを@<img>{spresense_sdk_camera_setting}のように組み立てます。
+//image[spresense_sdk_camera_setting][デジタルカメラ正面]{ 
+//}
+
+LCD実装面側は@<img>{spresense_sdk_camera_setting_lcd}のようになります。
+//image[spresense_sdk_camera_setting_lcd][デジタルカメラLCD正面]{ 
+//}
+
+このカメラボードのセッティング、プログラムの組み合わせで@<img>{spresense_sdk_lcd_preview}のように
+LCDにプレビュー画像が表示されます。
+
 == 書込み
 makeでできたファイル（nuttx.spk）をメインボードに書込みます。
 
@@ -589,6 +604,8 @@ Builtin Apps:
 
 【myfirstcameraapp】を入力し、デジタルカメラアプリケーションを開始します。
 次のメッセージが表示され、LCDにカメラのプレビュー画像が表示されます。
+
+
 //cmd{
 nsh> myfirstcameraapp
 nximage_listener: Connected
@@ -597,8 +614,8 @@ Take 10 pictures as JPEG file in /mnt/sd0 after 5 seconds.
  After finishing taking pictures, this app will be finished after 10 seconds.
 //}
 
-//comment{
-TODO: ここにカメラプレビュー画像を置く。
+LCDにカメラの撮影画像@<img>{spresense_sdk_lcd_preview}がプレビュー表示されます。
+//image[spresense_sdk_lcd_preview][デジタルカメラアプリケーションLCD画像表示]{ 
 //}
 
 APS学習ボードのタクトスイッチ（SW2）を押下します。
