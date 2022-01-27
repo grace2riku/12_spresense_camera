@@ -6,9 +6,9 @@
 Spresenseにはカメラの他にたくさんのサンプルプログラム、魅力的な機能があります。
 本章ではその機能・魅力をピックアップして紹介します。
 私がSpresense SDKの方に注力していることもあり【Spresense SDK】の紹介になります。
-Spresense SDKのチュートリアルは次のリンクに書かれています。
+Spresense SDKのチュートリアルは次のリンクに書かれています。@<br>{}
 
- * @<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html,Spresense SDK チュートリアル}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html,【リンク】Spresense SDK チュートリアル}
 
 以降の章のタイトルはリンク先の章番号です。
 
@@ -51,9 +51,9 @@ PCで動くゲームのエミュレータのROMのようにアプリケーショ
 == 24. SMP (Symmetric Multiprocessing)
 マルチコア（SMP型）について書かれています。
 
-※マルチコア構成についてはAPSのこちらの記事が詳しいです。
+※マルチコア構成についてはAPSのこちらの記事が詳しいです。@<br>{}
 
-@<href>{https://www.aps-web.jp/academy/amp/22917/,SPRESENSEを支えるリアルタイムOS「NuttX」により SMP × ASMP のシステムを構築！CPUコアを使いこなす3つのポイント}
+@<href>{https://www.aps-web.jp/academy/amp/22917/,【リンク】SPRESENSEを支えるリアルタイムOS「NuttX」により SMP × ASMP のシステムを構築！CPUコアを使いこなす3つのポイント}
 
 記事によるとSpresenseではSMP・ASMPの両方のシステム構成が構築できるようです。
 
@@ -254,7 +254,7 @@ nsh> ls /mnt/sd0/
  ._PICT002.JPG
 //}
 
-Trace Compassはチュートリアル、@<href>{https://nuttx.apache.org/docs/latest/guides/tasktraceuser.html,NuttX Task Trace User Guideマニュアル}の
+Trace Compassはチュートリアル、@<href>{https://nuttx.apache.org/docs/latest/guides/tasktraceuser.html,【リンク】NuttX Task Trace User Guideマニュアル}の
 とおりにインストールしておきます。
 Trace Compassは【バージョン7.2 Mac OS X 64bit】を使用しました。
 

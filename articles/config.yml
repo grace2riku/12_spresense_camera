@@ -19,13 +19,15 @@ review_version: 5.3
 
 # ブック名(ファイル名になるもの。ASCII範囲の文字を使用)
 #bookname: ReVIEW-Template
-bookname: Spresenseでデジカメを電子工作した体験談
+#bookname: Spresenseでデジカメを電子工作した体験談
+bookname: Spresenseデジタルカメラ開発
 # 記述言語。省略した場合はja
 language: ja
 
 # 書名
 #booktitle: {name: "Re:VIEWテンプレート", file-as: "reviewテンプレート"}
-booktitle: {name: "Spresenseでデジカメを電子工作した体験談", file-as: "Spresenseでデジカメを電子工作した体験談"}
+#booktitle: {name: "Spresenseでデジカメを電子工作した体験談", file-as: "Spresenseでデジカメを電子工作した体験談"}
+booktitle: {name: "Spresenseデジタルカメラ開発", file-as: "Spresense デジタルカメラ開発"}
 
 # 著者名。「, 」で区切って複数指定できる
 #aut: [{name: "TechBooster編", file-as: "techboosterヘン"}]

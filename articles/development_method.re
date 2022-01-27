@@ -17,7 +17,8 @@ Arduino IDEとの大きな違いとしてRTOS【NuttX】をベースに動作し
 @<img>{sdk_overview}はSpresense SDKの構造です。
 
 次のリンクのSpresense SDK 開発ガイド -> 1. Spresense SDKの概要 図 2. SDK Overviewより引用@<br>{}
-@<href>{https://developer.sony.com/develop/spresense/docs/sdk_developer_guide_ja.html}
+
+ * @<href>{https://developer.sony.com/develop/spresense/docs/sdk_developer_guide_ja.html}
 
 //image[sdk_overview][Spresense SDKの構造]{ 
 //}
@@ -48,7 +49,7 @@ help usage:  help [-v] [<cmd>]
 
 【POSIXインターフェースが提供されている】ですが次のリンクの記事が詳しいです。@<br>{}
 
-@<href>{https://www.aps-web.jp/academy/amp/18510/,リアルタイムOS「NuttX」のPOSIXインタフェースを活用してソフトウェアを簡単に移植する}
+@<href>{https://www.aps-web.jp/academy/amp/18510/,【リンク】リアルタイムOS「NuttX」のPOSIXインタフェースを活用してソフトウェアを簡単に移植する}
 
  * POSIXインターフェースのためアプリケーションの移植が容易
 

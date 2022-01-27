@@ -2,27 +2,27 @@
 = Arduino IDE開発手順
 Arduino IDEでデジタルカメラアプリケーションを開発する手順について書きます。
 
-今回のソースコードは次のGitHubリポジトリに置きました。
+今回のソースコードは次のGitHubリポジトリに置きました。@<br>{}
 
-@<href>{https://github.com/grace2riku/spresense_camera_arduino/tree/master,Arduino IDE 版デジタルカメラアプリケーション GitHub リポジトリのリンク}
+@<href>{https://github.com/grace2riku/spresense_camera_arduino/tree/master,【リンク】Arduino IDE 版デジタルカメラアプリケーション GitHub リポジトリ}
 
 == プログラム概要
 ArduinoのカメラサンプルプログラムをベースにしてSpresense SDK同様の動作に変更します。
 
 == ベースにしたサンプルプログラム
 Arduinoのカメラサンプルスケッチをベースにします。
-カメラのサンプルスケッチの説明は次のリンクに書かれています。
+カメラのサンプルスケッチの説明は次のリンクに書かれています。@<br>{}
 
- * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html#_tutorial_camera,3. Camera チュートリアル}
-　こちらはカメラサンプルスケッチに必要なライブラリインストールやコード変更手順など動作手順を解説してます。
+ * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html#_tutorial_camera,【リンク】3. Camera チュートリアル}
+　こちらはカメラサンプルスケッチに必要なライブラリインストールやコード変更手順など動作手順を解説してます。@<br>{}
 
- * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_developer_guide_ja.html#_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E8%A7%A3%E8%AA%AC,.2.7. サンプルコードによる解説}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_developer_guide_ja.html#_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E8%A7%A3%E8%AA%AC,【リンク】2.2.7. サンプルコードによる解説}
 　こちらはカメラサンプルスケッチのコードを詳しく解説しています。
 
 == アプリケーションの作成手順
-Arduino版デジタルカメラアプリケーション作成手順について書きます。
+Arduino版デジタルカメラアプリケーション作成手順について書きます。@<br>{}
 
-@<href>{https://developer.sony.com/develop/spresense/docs/arduino_set_up_ja.html,Spresnse Arduino版の開発環境構築}は完了している前提で書きます。
+@<href>{https://developer.sony.com/develop/spresense/docs/arduino_set_up_ja.html,【リンク】Spresnse Arduino版の開発環境構築}は完了している前提で書きます。
 
 === カメラサンプルスケッチの環境構築
 前述しましたがArduino版デジタルカメラアプリケーションはカメラのサンプルスケッチをベースに変更していきます。
@@ -33,9 +33,9 @@ LCD（ILI9341）の制御に必要なライブラリのインストール、LCD�
 === カメラサンプルスケッチの動作確認
 前の@<hd>{カメラサンプルスケッチの環境構築}で開発環境ができました。
 実際にビルド・書込みしカメラサンプルスケッチが正しく動作することを確認します。
-カメラサンプルスケッチの動作は次のリンク4, 5に書かれているとおりです。
+カメラサンプルスケッチの動作は次のリンク4, 5に書かれているとおりです。@<br>{}
 
- * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html#_%E5%8B%95%E4%BD%9C%E6%89%8B%E9%A0%86_18,3.1.3. 動作手順}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html#_%E5%8B%95%E4%BD%9C%E6%89%8B%E9%A0%86_18,【リンク】3.1.3. 動作手順}
 
 LCD画像にプレビュー画像を表示し、100枚撮影しSDカードに保存します。
 この動作が確認できたらArduino版デジタルカメラアプリケーションの変更をしていきます。
@@ -128,14 +128,14 @@ Arduino IDEの左上の【マイコンボードに書き込む】ボタンでビ
 
 1. GitHubリポジトリからソースコードをクローン・ダウンロードします。@<br>{}
 
- * @<href>{https://github.com/grace2riku/mycameraapps,Spresense SDK版デジタルカメラアプリケーション GitHubリポジトリのリンク}
+ * @<href>{https://github.com/grace2riku/mycameraapps,【リンク】Spresense SDK版デジタルカメラアプリケーション GitHubリポジトリ}
 
 【Download ZIP】を選択しzipファイルをダウンロードした前提で手順をかきます。
 次の開発環境構築が終わっていることが前提になります。@<br>{}
 
- * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_set_up_ja.html,Spresnse Arduino版の開発環境構築}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_set_up_ja.html,【リンク】Spresnse Arduino版の開発環境構築}
 
- * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html#_tutorial_camera,3. Camera チュートリアル}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html#_tutorial_camera,【リンク】3. Camera チュートリアル}
 
 2. ダウンロードしたzipファイルを任意のパスに解凍します。@<br>{}
 

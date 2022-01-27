@@ -3,7 +3,7 @@
 デジタルカメラアプリケーションをSpresense SDKとArduinoで実装してみました。
 Arduino、Spresense SDKの特徴が書かれている次のリンクも参照しつつ、個人的な所感をまとめてみます。
 
- * @<href>{https://developer.sony.com/develop/spresense/docs/introduction_ja.html#_spresense_%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6,3. Spresense ソフトウェアについて}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/introduction_ja.html#_spresense_%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6,【リンク】3. Spresense ソフトウェアについて}
  ** 3.1. Spresense Arduino Libraryを用いた開発環境
  ** 3.2. Spresense SDKを用いた開発環境
 
@@ -22,7 +22,7 @@ Arduino、Spresnse SDKの大きな違いは【OSコンフィギュレーショ�
 == 機能面
 3. Spresense ソフトウェアについて
 
-リンク: @<href>{https://developer.sony.com/develop/spresense/docs/introduction_ja.html#_spresense_%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6,3. Spresense ソフトウェアについて}の記述を引用します。
+@<href>{https://developer.sony.com/develop/spresense/docs/introduction_ja.html#_spresense_%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6,【リンク】3. Spresense ソフトウェアについて}の記述を引用します。
 
  * Spresense SDKはSpresenseがもつ性能を最大限引き出すことができる
 
@@ -37,16 +37,16 @@ Arduino、Spresnse SDKの大きな違いは【OSコンフィギュレーショ�
 これらの機能はSpresense SDK・Arduino両方で使えたので機能面で差があるようには感じませんでした。
 機能面で差があるかもしれないと感じたこと理由のひとつとして【チュートリアルの掲載数】です。
 
-@<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html,Arduino チュートリアル}の
+@<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html,【リンク】Arduino チュートリアル}の
 章の数は【8】個なのに対して、
-@<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html,Spresense SDK チュートリアル}の
+@<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html,【リンク】Spresense SDK チュートリアル}の
 章の数は【27】個でした。
 
 【Spresense SDKはSpresenseがもつ性能を最大限引き出すことができる】ため多くの機能を紹介しているのかもしれないと思いました。
 Linuxコマンドと同じようなコマンドを使えることもSpresense SDKの強みかと思いました。
 
 == 開発したプログラムの移植の容易性
-@<href>{https://developer.sony.com/develop/spresense/docs/sdk_developer_guide_ja.html#_camera,Spresense SDK 開発ガイド}を
+@<href>{https://developer.sony.com/develop/spresense/docs/sdk_developer_guide_ja.html#_camera,【リンク】Spresense SDK 開発ガイド}を
 見ていて感じたことですがSpresense SDKはプログラムの移植が容易かもしれないと思いました。
 ここでいう移植は次の定義です。
 
@@ -66,7 +66,7 @@ Spresense SDK チュートリアルを見ていると次の記述がありまし
 
 こちらの記事にもPOSIXインタフェースを活用した移植について書かれています。
 
- * @<href>{https://www.aps-web.jp/academy/amp/18510/,リアルタイムOS「NuttX」のPOSIXインタフェースを活用してソフトウェアを簡単に移植する}
+ * @<href>{https://www.aps-web.jp/academy/amp/18510/,【リンク】リアルタイムOS「NuttX」のPOSIXインタフェースを活用してソフトウェアを簡単に移植する}
 
 LinuxのV4L2に非常によく似たドライバI/F、POSIX I/Fを使用したプログラミングを行うことで前述の移植性を高めることができるのではないかと思いました。
 

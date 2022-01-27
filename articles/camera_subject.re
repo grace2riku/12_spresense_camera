@@ -20,9 +20,9 @@ KojinoMacBook-2:sdk k-abe$ tools/config.py -m
 コンフィギュレーションに【examples/camera】を指定し、
 その後のCUIメニューで【examples/camera】のアプリは無効化し、
 デジタルカメラアプリケーションのコンフィギュレーションは有効化してコンフィギュレーションしていました。
-もっと素早く、的確に要求する機能のコンフィギュレーション設定を把握する・設定する方法があれば知りたいと思いました。
+もっと素早く、的確に要求する機能のコンフィギュレーション設定を把握する・設定する方法があれば知りたいと思いました。@<br>{}
 
-こちらのリンク@<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E5%AE%9A%E7%BE%A9%E6%B8%88%E3%81%BF%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A3%E3%82%AE%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3defconfig,4.1.2. 定義済みコンフィギュレーション（defconfig）}
+こちらのリンク@<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E5%AE%9A%E7%BE%A9%E6%B8%88%E3%81%BF%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A3%E3%82%AE%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3defconfig,【リンク】4.1.2. 定義済みコンフィギュレーション（defconfig）}
 にあるように【tools/config.py -i】オプションでサンプルプログラムのコンフィギュレーションを知ることができます。
 
 //cmd{

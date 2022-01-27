@@ -24,10 +24,11 @@ Visual Studio Codeを使っても問題ないと思いますが、CLIを使う�
 CLI・Visual Studio Codeともにマニュアルとおりに作業していけば問題なく開発環境を構築できました。
 CLIの開発環境構築は次のリンクに書かれています。@<br>{}
 
-@<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html}
 
 Visual Studio Codeの開発環境構築は次のリンクに書かれています。@<br>{}
-@<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ide_ja.html}
+
+ * @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ide_ja.html}
 
 Spresense SDK・ブートローダーのバージョンは執筆時の最新バージョンである【v2.4.0】を使用しました。
 
@@ -35,7 +36,7 @@ Spresense SDK・ブートローダーのバージョンは執筆時の最新バ�
 == Arduino IDE
 Arduino IDEの開発環境構築は次のリンクに書かれています。@<br>{}
 
-@<href>{https://developer.sony.com/develop/spresense/docs/arduino_set_up_ja.html}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/arduino_set_up_ja.html}
 
 私はArduino・ブートローダーのバージョンは執筆時の最新バージョンである【v2.4.0】を使用しました。
 

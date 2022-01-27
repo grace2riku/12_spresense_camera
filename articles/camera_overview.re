@@ -163,5 +163,5 @@ LCDと接触していないか横から撮影したものです。
 付加価値をつけたシステムをつくることも可能そうです。
 
 ※カメラと当該Wi-Fi Add-onボードを使用したサンプルプログラムが
-@<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html#_multiwebcam_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3,Spresense SDKチュートリアル 5.2. multiwebcam サンプルアプリケーション}
+@<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html#_multiwebcam_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3,【リンク】Spresense SDKチュートリアル 5.2. multiwebcam サンプルアプリケーション}
 に書かれていました。

@@ -15,7 +15,7 @@
 === メインボード
 === 拡張ボード
 === カメラボード
-メインボード、拡張ボード、カメラボードは次に説明が書かれています。
+メインボード、拡張ボード、カメラボードは次に説明が書かれています。@<br>{}
 
 @<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html#_camera_%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB}
 
@@ -26,8 +26,9 @@
 カメラボードは2.1.4. Spresense カメラボードです。
 
 === ILI9341 2.2inch LCD
-電子工作でよく使われている印象のLCDです。
-私は@<href>{https://www.aliexpress.com/snapshot/0.html?spm=a2g0o.9042647.6.2.7ba84c4doorRDS&orderId=8015268750165621&productId=32914366837,AliExpress}で購入しました。
+電子工作でよく使われている印象のLCDです。@<br>{}
+
+私は@<href>{https://www.aliexpress.com/snapshot/0.html?spm=a2g0o.9042647.6.2.7ba84c4doorRDS&orderId=8015268750165621&productId=32914366837,【リンク】AliExpress}で購入しました。
 
 === APS学習ボード
 こちらのリンクが取り扱い説明書です。
@@ -35,7 +36,7 @@
 @<href>{https://www.aps-web.jp/academy/amp/8467/}@<br>{}
 
 前述の部品一覧はAPS学習ボードに実装する部品を書いていません。
-チップワンストップでは部品実装済み、LCDセット品もあるとのことです。
+チップワンストップでは部品実装済み、LCDセット品もあるとのことです。@<br>{}
 
 @<href>{https://www.chip1stop.com/view/dispDetail/DispDetail?partId=APS1-0000002}
 
@@ -115,9 +116,9 @@ SW2押下なしで点灯、SW2押下ありで消灯するようにしました�
 GPIOピンを指定するピン番号が異なることです。
 この情報は次の資料にまとめられています。@<br>{}
 
-@<href>{https://developer.sony.com/develop/spresense/docs/hw_design_ja.html,ハードウェア設計資料}
-@<br>{}
-@<href>{https://github.com/sonydevworld/spresense-hw-design-files/raw/master/Pin/Spresense_pin_function_ja.xlsx,Spresense コネクタ ピンリスト コネクタ ピンリスト (xlsx)}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/hw_design_ja.html,【リンク】ハードウェア設計資料}
+
+ * @<href>{https://github.com/sonydevworld/spresense-hw-design-files/raw/master/Pin/Spresense_pin_function_ja.xlsx,【リンク】Spresense コネクタ ピンリスト コネクタ ピンリスト (xlsx)}
 
 資料の【SDK上の名称】の列はSpresense SDKでGPIOを指定する際の名称になります。@<br>{}
 資料の【ArduinoIDE上の名称】の列はArduino IDEでGPIOを指定する際の名称になります。
@@ -139,9 +140,10 @@ APS学習ボードのタクトスイッチSW1（拡張ボードJP13-1に接続�
 
 === Spresense SDKでGPIOを指定する場合
 前述の資料でSpresense SDKでAPS学習ボードのタクトスイッチSW1（拡張ボードJP13-1に接続）を指定する名称がわかりました。
-【SDK上の名称】・【SDK上のピン番号】は次のヘッダファイルに定義されています。
+【SDK上の名称】・【SDK上のピン番号】は次のヘッダファイルに定義されています。@<br>{}
 
- * @<href>{https://github.com/sonydevworld/spresense-nuttx/blob/new-master/arch/arm/include/cxd56xx/pin.h,nuttx/arch/arm/include/cxd56xx/pin.h}@<br>{}
+ * @<href>{https://github.com/sonydevworld/spresense-nuttx/blob/new-master/arch/arm/include/cxd56xx/pin.h,【リンク】nuttx/arch/arm/include/cxd56xx/pin.h}@<br>{}
+
     ローカルPCに環境構築したソースコードの場合（Mac）は次のファイルパス@<br>{}
     /Users/ユーザー名/spresense/nuttx/arch/arm/include/cxd56xx/pin.h
 

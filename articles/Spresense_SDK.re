@@ -2,9 +2,9 @@
 = Spresense SDK開発手順
 Spresense SDKでデジタルカメラアプリケーションを開発する手順について書きます。
 
-今回のソースコードは次のGitHubリポジトリに置きました。
+今回のソースコードは次のGitHubリポジトリに置きました。@<br>{}
 
- * @<href>{https://github.com/grace2riku/mycameraapps,Spresense SDK版デジタルカメラアプリケーション GitHubリポジトリのリンク}
+ * @<href>{https://github.com/grace2riku/mycameraapps,【リンク】Spresense SDK版デジタルカメラアプリケーション GitHubリポジトリ}
 
 == プログラム概要
 @<hd>{camera_overview|デジタルカメラの要求仕様}で書いたとおり、
@@ -22,7 +22,8 @@ Spresense SDKでデジタルカメラアプリケーションを開発する手�
 アプリケーションの作成手順は次のリンク、章に記載されています。
 参考にするとアプリケーションの作成の流れが理解できると思います。@<br>{}
 
-@<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html}@<br>{}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html}@<br>{}
+ 
 3. サンプルアプリケーション "Hello, World!" の実行手順@<br>{}
 
 以降にデジタルカメラアプリケーションの作成手順を書きます。
@@ -35,13 +36,13 @@ source ~/spresenseenv/setup
 //}
 
 === アプリケーションの追加
-アプリケーションの追加の手順はWebマニュアルに次の3つが書かれています。
+アプリケーションの追加の手順はWebマニュアルに次の3つが書かれています。@<br>{}
 
-@<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E8%BF%BD%E5%8A%A0%E6%96%B9%E6%B3%95,6. ユーザーアプリの追加方法}@<br>{}
+@<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E8%BF%BD%E5%8A%A0%E6%96%B9%E6%B3%95,【リンク】6. ユーザーアプリの追加方法}@<br>{}
 
- 1. @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_examples%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B,examplesに追加する}
- 1. @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E5%88%A5%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B,別ディレクトリに追加する}
- 1. @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B,ツールを使用する}
+ 1. @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_examples%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B,【リンク】examplesに追加する}
+ 1. @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E5%88%A5%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B,【リンク】別ディレクトリに追加する}
+ 1. @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B,【リンク】ツールを使用する}
 
 私は【ツールを使用する】の手順でアプリケーションを追加しました。
 以降に具体的操作手順を書きます。@<br>{}
@@ -70,7 +71,7 @@ tools/mkcmd.py -d mycameraapps myfirstcameraapp "My first camera app"
 
 次のリンクを参考にしつつ、【examples/camera】のKconfigファイルと同じように変更します。@<br>{}
 
- * @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_examples%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B,Kconfig変更内容参考リンク}
+ * @<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_examples%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B,【リンク】Kconfig変更内容参考リンク}
 
 【examples/camera】のKconfigファイルは次のパスにあります。@<br>{}
 
@@ -454,7 +455,7 @@ Visual Studio Codeのターミナル、シェルで操作することを前提�
 
 1. GitHubリポジトリからソースコードをクローン・ダウンロードします。@<br>{}
 
- * @<href>{https://github.com/grace2riku/mycameraapps,Spresense SDK版デジタルカメラアプリケーション GitHubリポジトリのリンク}
+ * @<href>{https://github.com/grace2riku/mycameraapps,【リンク】Spresense SDK版デジタルカメラアプリケーション GitHubリポジトリ}
 
 【Download ZIP】を選択しzipファイルをダウンロードした前提で手順をかきます。
 Spresense SDKの開発環境構築が終わっていることが前提になります。@<br>{}
