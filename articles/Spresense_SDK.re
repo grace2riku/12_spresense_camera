@@ -397,7 +397,7 @@ MAINSRC = myfirstcameraapp_main.c
 include $(APPDIR)/Application.mk
 //}
 
-変更したのはCSRCSになります。
+変更したのはCSRCSになります。@<br>{}
 LCD出力のコンフィグ（CONFIG_MYCAMERAAPPS_MYFIRSTCAMERAAPP_OUTPUT_LCD）が設定されていたときの条件も追加しています。@<br>{}
 【examples/camera】サンプルグラムのMakefileではMAINSRCがcamera_main.cになっていました。
 今回はデジタルカメラアプリケーションの名称【myfirstcameraapp】で自動生成された【myfirstcameraapp_main.c】を
@@ -545,7 +545,7 @@ reboot
 次のコマンドを実行しデジタルカメラアプリケーションが動いているか確認します。
 
 === シリアル接続
-シリアルターミナルでNuttxのシェルに接続します。
+シリアルターミナルでNuttXのシェルに接続します。
 今回はシリアルターミナルに【minicom】を使用します。
 
 次のコマンドで接続します。
@@ -614,7 +614,7 @@ Take 10 pictures as JPEG file in /mnt/sd0 after 5 seconds.
  After finishing taking pictures, this app will be finished after 10 seconds.
 //}
 
-LCDにカメラの撮影画像@<img>{spresense_sdk_lcd_preview}がプレビュー表示されます。
+LCDに@<img>{spresense_sdk_lcd_preview}のようにカメラの撮影画像がプレビュー表示されます。
 //image[spresense_sdk_lcd_preview][デジタルカメラアプリケーションLCD画像表示]{ 
 //}
 
@@ -648,7 +648,7 @@ Finished captureing...
 　LCDに表示されている画像を撮影開始するメッセージです。
 
  * sw2_status = 1
-　APS学習ボードのSW2を押下⇛リリースしたときに表示されるメッセージです。このときUSER_LED2は消灯⇛点灯になります。
+　APS学習ボードのSW2を押下→リリースしたときに表示されるメッセージです。このときUSER_LED2は消灯→点灯になります。
 
  * FILENAME:/mnt/sd0/VIDEO001.JPG
 　Finished captureing...@<br>{}
@@ -762,7 +762,3 @@ nsh> free
 
 如何でしょうか?一部ですがコマンド実行結果を書きました。
 Linuxと同じようにコマンドが実行できました。
-
-//comment{
-
-//}

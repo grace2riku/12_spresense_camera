@@ -1,5 +1,6 @@
 
 = 課題
+今回つくったデジタルカメラアプリケーションの課題について書きます。
 
 == Spresense SDK版の課題
 === アプリケーション実行中はシェルに制御が返らないようになっている件
@@ -22,7 +23,7 @@ KojinoMacBook-2:sdk k-abe$ tools/config.py -m
 もっと素早く、的確に要求する機能のコンフィギュレーション設定を把握する・設定する方法があれば知りたいと思いました。
 
 こちらのリンク@<href>{https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_%E5%AE%9A%E7%BE%A9%E6%B8%88%E3%81%BF%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A3%E3%82%AE%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3defconfig,4.1.2. 定義済みコンフィギュレーション（defconfig）}
-にあるように【tools/config.py -i】オプションでサンプルプログラムのコンフィギュレーションを知ることはできます。
+にあるように【tools/config.py -i】オプションでサンプルプログラムのコンフィギュレーションを知ることができます。
 
 //cmd{
 SpresenseSDK:KojinoMacBook-2:sdk k-abe$ tools/config.py -i examples/camera
@@ -83,6 +84,7 @@ examples/camera
 前述した手順でコンフィギュレーションをひとつずつ検索していけば定義位置は把握できます。
 コンフィギュレーションが【examples/camera】のように複数あるとなかなか時間がかかると思うので
 素早くコンフィグレーション定義位置を知る方法・コンフィグレーションする方法があれば知りたいと思いました。
+
 
 == カメラボードのセッティング
 Spresense SDK版とArduino版ではカメラボードの取り付け位置が180度ずれています。

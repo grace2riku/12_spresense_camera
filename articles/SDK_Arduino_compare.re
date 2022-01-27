@@ -17,7 +17,7 @@ Arduino、Spresense SDKの特徴を書きます。
  ** コンフィギュレーションなどArduinoに比べて開発の難易度が高い
 
 Arduino、Spresnse SDKの大きな違いは【OSコンフィギュレーション】の有無かと思いました。
-実装したい機能要求により機能の有効化・無効化を選択する作業はOSレスの開発をメインにしている私にとっては練習が必要かと感じました。
+実装したい機能要求により機能の有効化・無効化を選択する作業はOSレスの開発をメインにしている私にとっては練習が必要と感じました。
 
 == 機能面
 3. Spresense ソフトウェアについて
@@ -38,7 +38,7 @@ Arduino、Spresnse SDKの大きな違いは【OSコンフィギュレーショ�
 機能面で差があるかもしれないと感じたこと理由のひとつとして【チュートリアルの掲載数】です。
 
 @<href>{https://developer.sony.com/develop/spresense/docs/arduino_tutorials_ja.html,Arduino チュートリアル}の
-章の数は【8】個対し、
+章の数は【8】個なのに対して、
 @<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html,Spresense SDK チュートリアル}の
 章の数は【27】個でした。
 

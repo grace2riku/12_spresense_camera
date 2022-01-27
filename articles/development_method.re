@@ -54,7 +54,7 @@ help usage:  help [-v] [<cmd>]
 
  * PThreadsプログラムを移植が容易
 
-6コアのSpresenseとしてマルチスレッドを容易に実現できる仕組みが提供されているのはよいと思います。
+6コアのSpresenseとしてはPThreadsが使えることは既存の開発資産を活かせる、開発後のソフトウェア移植容易性という観点でもよい思いました。
 
 
 == Arduino IDE

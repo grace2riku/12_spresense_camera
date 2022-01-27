@@ -1,6 +1,5 @@
 //footnote[aps_board][https://www.aps-web.jp/academy/amp/8467/]
 //footnote[wifi_add_on_board][https://idy-design.com/product/is110b.html]
-//footnote[camera_wifi_tutorial][https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html#_multiwebcam_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3]
 
 = デジタルカメラ機能説明
 
@@ -79,9 +78,9 @@ nが0の場合はLCDに画像を表示し続け、画像ファイルを保存し
 
 一般的なデジタルカメラのように次の動作を実現したいと考えました。
 
- 1. LCDに画像をプレビュー表示し続ける。
+ 1. LCDに画像をプレビュー表示し続ける
  1. 任意のタイミングで画像を保存できること
- 1. 任意のタイミングでカメラの使用を終了できること。
+ 1. 任意のタイミングでカメラの使用を終了できること
 
 ちょうど手元に以前購入していたAPS学習ボード@<fn>{aps_board}がありました。
 
@@ -93,32 +92,32 @@ nが0の場合はLCDに画像を表示し続け、画像ファイルを保存し
 
 APS学習ボードは拡張ボードにスタックして使うボードで次の特徴があります。
 
- * プログラムから操作可能なタクトスイッチが2つ
+ * プログラムで使えるタクトスイッチが2つ
 
- * プログラムから操作可能なLEDが2つ
+ * プログラムで使えるLEDが2つ
 
  * アナログコンデンサマイク左:2つ、右2つの合計4つ接続可能
 
- * ILI9341 2.2inch LCD接続用端子あり
+ * LCD（ILI9341 2.2inch）接続用端子あり
 
  * カメラボードのカメラマウント用のネジ穴あり
 
  * メインボードにサードパーティー拡張ボードが接続できるよう基板中心がくり抜かれている
 
 次が各ボードを接続したときの写真です。
-拡張ボードにカメラボードを取り付け、拡張ボードの上にメインボードを装着した状態で
+メインボードにカメラボードを取り付け、拡張ボードの上にメインボードを装着した状態で
 
-//image[main+ex+camera_board][拡張ボード+カメラボード+メインボード]{ 
+//image[main+ex+camera_board][拡張ボード+メインボード+カメラボード]{ 
 //}
 
 拡張ボードとAPS学習ボードを接続します。
 
-//image[main+ex+camera+aps_board][拡張ボード+カメラボード+メインボード+APS学習ボード]{ 
+//image[main+ex+camera+aps_board][拡張ボード+メインボード+カメラボード+APS学習ボード]{ 
 //}
 
 最後にAPS学習ボードとLCDを接続すればデジタルカメラのハードウェアが完成です。
 
-//image[main+ex+camera+aps+lcd_board][拡張ボード+カメラボード+メインボード+APS学習ボード+LCD]{ 
+//image[main+ex+camera+aps+lcd_board][拡張ボード+メインボード+カメラボード+APS学習ボード+LCD]{ 
 //}
 
 
@@ -160,7 +159,9 @@ LCDと接触していないか横から撮影したものです。
 //image[main+ex+camera+aps+wifi-addon+lcd_board_side][Wi-Fi Add-onボードとLCDの干渉を確認]{ 
 //}
 
-例に挙げたWi-Fi Add-onボードとLCDは部品同士の干渉もないので、デジタルカメラにネットワーク付加価値をつけたシステムを
-つくることも可能そうです。
+例に挙げたWi-Fi Add-onボードとLCDは部品同士の干渉もないので、デジタルカメラにネットワーク機能を追加するなど
+付加価値をつけたシステムをつくることも可能そうです。
 
-※カメラと当該Wi-Fi Add-onボードを使用したサンプルプログラムがSpresense SDKチュートリアル@<fn>{camera_wifi_tutorial}に書かれていました。
+※カメラと当該Wi-Fi Add-onボードを使用したサンプルプログラムが
+@<href>{https://developer.sony.com/develop/spresense/docs/sdk_tutorials_ja.html#_multiwebcam_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3,Spresense SDKチュートリアル 5.2. multiwebcam サンプルアプリケーション}
+に書かれていました。
